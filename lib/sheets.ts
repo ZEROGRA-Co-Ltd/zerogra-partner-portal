@@ -168,7 +168,7 @@ export function calculateRank(
 
 export function parseJobs(rows: string[][]): Job[] {
   const jobs: Job[] = [];
-  for (let i = 1; i < rows.length; i++) {
+  for (let i = 0; i < rows.length; i++) {
     const row = rows[i] || [];
     if (!row[2]) continue;
     const recommendCell = row[0] || '';

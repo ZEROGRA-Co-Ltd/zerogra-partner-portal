@@ -8,7 +8,8 @@ export const revalidate = 3600;
 export async function GET() {
   try {
     const rows = await getSheetValues(SPREADSHEET_ID_JOBS, '求人リスト!A:Z');
-    const jobs = parseJobs(rows);
+    const dataRows = rows.slice(1);
+    const jobs = parseJobs(dataRows);
     return NextResponse.json({ jobs });
   } catch (err) {
     console.error('[jobs] error', err);
