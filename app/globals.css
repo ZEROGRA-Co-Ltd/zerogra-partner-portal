@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+html, body {
+  background-color: #ffffff;
+  color: #0a0f1e;
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-md bg-zerogra-navy text-white font-medium hover:bg-opacity-90 transition disabled:opacity-50;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-md border border-zerogra-navy text-zerogra-navy font-medium hover:bg-zerogra-navy hover:text-white transition;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+}
+
+table.striped tbody tr:nth-child(odd) {
+  background-color: #f9fafb;
+}
+
+table.striped tbody tr:hover {
+  background-color: #eff6ff;
+}
