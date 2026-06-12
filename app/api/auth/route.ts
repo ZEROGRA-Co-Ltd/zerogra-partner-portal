@@ -27,7 +27,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: '未登録のメールアドレスです' }, { status: 404 });
     }
 
-    const dealRows = await getSheetValues(mainId, '選考案件リスト!A:Z');
+    const dealRows = await getSheetValues(mainId, 'アライアンス企業選考案件リスト!A:Z');
     const deals = parseDeals(dealRows, partner.name);
     const { rank, periodSales, nextRank, neededAmount } = calculateRank(
       deals,

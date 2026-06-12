@@ -15,7 +15,7 @@ export type Deal = {
   raSales: number;
   offerDate: string;
   acceptedDate: string;
-  entryDate: string;
+  joinDate: string;
   paymentDate: string;
   partnerPayoutDate: string;
 };

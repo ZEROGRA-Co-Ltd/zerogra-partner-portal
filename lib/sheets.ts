@@ -97,7 +97,7 @@ export function parseDeals(rows: string[][], partnerName: string): Deal[] {
     if (referral !== '提携Agent') continue;
     if (owner !== partnerName) continue;
 
-    const paymentDate = row[20] || '';
+    const paymentDate = row[19] || '';
     let partnerPayoutDate = '';
     const pd = parseDate(paymentDate);
     if (pd) {
@@ -115,9 +115,9 @@ export function parseDeals(rows: string[][], partnerName: string): Deal[] {
       status: row[11] || '',
       reward: parseNumber(row[14]),
       raSales: parseNumber(row[15]),
-      offerDate: row[17] || '',
-      acceptedDate: row[18] || '',
-      entryDate: row[19] || '',
+      offerDate: row[16] || '',
+      acceptedDate: row[17] || '',
+      joinDate: row[18] || '',
       paymentDate,
       partnerPayoutDate,
     });

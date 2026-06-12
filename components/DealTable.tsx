@@ -30,8 +30,8 @@ export default function DealTable({ deals, rank }: { deals: Deal[]; rank: Rank }
             <th className="px-3 py-2 whitespace-nowrap">ステータス</th>
             <th className="px-3 py-2 whitespace-nowrap text-right">決定報酬</th>
             <th className="px-3 py-2 whitespace-nowrap text-right">パートナー報酬</th>
-            <th className="px-3 py-2 whitespace-nowrap">エントリー日</th>
             <th className="px-3 py-2 whitespace-nowrap">内定日</th>
+            <th className="px-3 py-2 whitespace-nowrap">入社予定日</th>
             <th className="px-3 py-2 whitespace-nowrap">支払予定日</th>
           </tr>
         </thead>
@@ -50,8 +50,8 @@ export default function DealTable({ deals, rank }: { deals: Deal[]; rank: Rank }
                 <td className="px-3 py-2 whitespace-nowrap text-right font-medium text-zerogra-blue">
                   {formatYen(partnerReward)}
                 </td>
-                <td className="px-3 py-2 whitespace-nowrap">{d.entryDate || '-'}</td>
                 <td className="px-3 py-2 whitespace-nowrap">{d.offerDate || '-'}</td>
+                <td className="px-3 py-2 whitespace-nowrap">{d.joinDate || '-'}</td>
                 <td className="px-3 py-2 whitespace-nowrap">{d.partnerPayoutDate || '-'}</td>
               </tr>
             );
