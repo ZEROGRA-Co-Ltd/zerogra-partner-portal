@@ -6,7 +6,7 @@ ZEROGRA の RA アライアンスパートナー企業向けポータルサイ�
 - メールアドレスのみでログイン（パートナー管理スプレッドシートと照合）
 - 評価期間内売上に基づくランク表示（STANDARD / SILVER / GOLD / PLATINUM）
 - 進行中の選考案件リスト表示
-- HOT求人リスト（エリア・業界・職種・要件・難易度・オススメ でフィルタ）
+- HOT求人リスト / 求人データベース / 利用規約 への外部リンクバナー
 
 ## セットアップ
 
@@ -30,7 +30,7 @@ NEXT_PUBLIC_LOGO_URL=https://lh3.googleusercontent.com/d/1ocYgthsC2y2xag0zLA_G0u
   ```
   GOOGLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIIE...\n-----END PRIVATE KEY-----\n"
   ```
-- `SPREADSHEET_ID_JOBS` （HOT求人リスト）はコード側にハードコードしてあります（`lib/sheets.ts`）。
+- HOT求人リスト等の外部リソースはダッシュボードからリンクバナーで遷移する設計のため、本アプリから直接 API でアクセスはしません。
 
 ### 3. サービスアカウントの作成手順
 
@@ -42,12 +42,9 @@ NEXT_PUBLIC_LOGO_URL=https://lh3.googleusercontent.com/d/1ocYgthsC2y2xag0zLA_G0u
 
 ### 4. スプレッドシートの共有設定
 
-利用する **2 つのスプレッドシート** を、サービスアカウントの `client_email` に対して **閲覧者** 以上で共有してください。
+パートナー・案件管理スプレッドシート（`SPREADSHEET_ID_MAIN`）を、サービスアカウントの `client_email` に対して **閲覧者** 以上で共有してください。
 
-- パートナー・案件管理スプレッドシート（`SPREADSHEET_ID_MAIN`）
-  - シート名：`m_partner`、`選考案件リスト`
-- HOT求人リストスプレッドシート（`1V4AxgmQon75Q9CBdzUzCS3aD43SFnDvnpal4cYT-Ecg`）
-  - シート名：`求人リスト`
+- シート名：`m_partner`、`アライアンス企業選考案件リスト`
 
 ### 5. 開発サーバーの起動
 ```bash
@@ -68,14 +65,13 @@ http://localhost:3000 でアクセス。
   /dashboard/page.tsx    ダッシュボード
   /api
     /auth/route.ts       メール照合 + 案件取得 + ランク計算
-    /jobs/route.ts       HOT求人リスト取得（1時間キャッシュ）
   /layout.tsx
   /globals.css
 /components
   /RankBadge.tsx
   /SummaryCards.tsx
   /DealTable.tsx
-  /JobsTable.tsx
+  /LinkBanners.tsx
 /lib
   /sheets.ts             Google Sheets API共通処理 + ランク計算
 ```

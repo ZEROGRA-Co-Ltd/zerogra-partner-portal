@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import RankBadge from '@/components/RankBadge';
 import SummaryCards from '@/components/SummaryCards';
 import DealTable from '@/components/DealTable';
-import JobsTable from '@/components/JobsTable';
+import LinkBanners from '@/components/LinkBanners';
 import type { Deal, Partner, Rank } from '@/lib/types';
 
 type PortalData = {
@@ -84,13 +84,12 @@ export default function DashboardPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold mb-3 text-zerogra-navy">選考案件リスト</h2>
-          <DealTable deals={data.deals} rank={data.rank} />
+          <LinkBanners />
         </section>
 
         <section>
-          <h2 className="text-lg font-bold mb-3 text-zerogra-navy">HOT求人リスト</h2>
-          <JobsTable />
+          <h2 className="text-lg font-bold mb-3 text-zerogra-navy">選考案件リスト</h2>
+          <DealTable deals={data.deals} rank={data.rank} />
         </section>
 
         <footer className="text-center text-xs text-gray-400 pt-8 pb-4">

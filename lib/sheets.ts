@@ -1,8 +1,6 @@
 import { google, sheets_v4 } from 'googleapis';
-import type { Deal, Job, Partner, Rank } from './types';
+import type { Deal, Partner, Rank } from './types';
 import { RANK_TABLE } from './types';
-
-export const SPREADSHEET_ID_JOBS = '1V4AxgmQon75Q9CBdzUzCS3aD43SFnDvnpal4cYT-Ecg';
 
 let cachedClient: sheets_v4.Sheets | null = null;
 
@@ -166,27 +164,4 @@ export function calculateRank(
   };
 }
 
-export function parseJobs(rows: string[][]): Job[] {
-  const jobs: Job[] = [];
-  for (let i = 0; i < rows.length; i++) {
-    const row = rows[i] || [];
-    if (!row[2]) continue;
-    const recommendCell = row[0] || '';
-    const stars = (String(recommendCell).match(/★/g) || []).length;
-    jobs.push({
-      recommend: stars || parseNumber(recommendCell),
-      hireRecord: row[1] || '',
-      company: row[2] || '',
-      jobUrl: row[3] || '',
-      difficulty: row[4] || '',
-      area: row[5] || '',
-      industry: row[6] || '',
-      position: row[7] || '',
-      requirement: row[8] || '',
-      memo: row[9] || '',
-    });
-  }
-  return jobs;
-}
-
-export type { Deal, Job, Partner, Rank };
+export type { Deal, Partner, Rank };

@@ -29,15 +29,3 @@ export const RANK_TABLE: { rank: Rank; threshold: number; share: number; emoji: 
   { rank: 'PLATINUM', threshold: 20_000_000, share: 0.90, emoji: 'PLT' },
 ];
 
-export type Job = {
-  recommend: number;
-  hireRecord: string;
-  company: string;
-  jobUrl: string;
-  difficulty: string;
-  area: string;
-  industry: string;
-  position: string;
-  requirement: string;
-  memo: string;
-};
