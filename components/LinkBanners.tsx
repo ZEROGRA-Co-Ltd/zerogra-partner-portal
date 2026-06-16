@@ -30,11 +30,18 @@ const BANNERS: Banner[] = [
     subtitle: 'RAアライアンス利用規約を確認',
     gradient: 'bg-gradient-to-br from-[#4a5568] to-[#2d3748]',
   },
+  {
+    href: 'https://docs.google.com/spreadsheets/d/1V4AxgmQon75Q9CBdzUzCS3aD43SFnDvnpal4cYT-Ecg/edit?gid=160715395#gid=160715395',
+    icon: '👥',
+    title: 'RA担当連絡先',
+    subtitle: '担当RAの電話・メール・Slackを確認',
+    gradient: 'bg-gradient-to-br from-[#11998e] to-[#38ef7d]',
+  },
 ];
 
 export default function LinkBanners() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {BANNERS.map((b) => (
         <a
           key={b.title}
